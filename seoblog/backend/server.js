@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const dbConnection = require('./config/databaseConnection.js') ;
 const blogRoutes = require('./routes/blog.js')
-
+const authRoutes = require('./routes/auth.js') ;
 
 /*creates a new express*/
 const app = express();
@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // routes middleware 
 app.use('/api',blogRoutes);
-
+app.use('/api' , authRoutes) ;
 
 
 const PORT = process.env.PORT || 8080;
