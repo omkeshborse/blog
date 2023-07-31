@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
-const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/seoblog";
+const DATABASE_URI =
+  process.env.DATABASE_URI_LOCAL || "mongodb://127.0.0.1:27017/seoblog";
 const dbConnection = async () => {
   mongoose
-    .connect(MONGO_URI)
+    .connect(DATABASE_URI)
     .then((conn) => {
       console.log(`Database connected to ${conn.connection.host}`);
     })

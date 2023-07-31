@@ -5,6 +5,10 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const dbConnection = require('./config/databaseConnection.js') ;
+const blogRoutes = require('./routes/blog.js')
+
+
+/*creates a new express*/
 const app = express();
 
 /* db connection  */ 
@@ -20,12 +24,10 @@ if (process.env.NODE_ENV === 'development') {
     app.use(cors({ origin: `${process.env.CLIENT_URL}` }));
 }
 
-/* routes */
-app.get("/api", (req, res) => {
-  res.json({
-    time: Date().toString(),
-  });
-});
+// routes middleware 
+app.use('/api',blogRoutes);
+
+
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
