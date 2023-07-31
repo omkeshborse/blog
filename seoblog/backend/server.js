@@ -4,9 +4,11 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-
+const dbConnection = require('./config/databaseConnection.js') ;
 const app = express();
 
+/* db connection  */ 
+dbConnection() ;
 /* middle ware */
 
 app.use(morgan("dev"));
