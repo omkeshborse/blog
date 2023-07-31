@@ -1,11 +1,7 @@
 const express = require("express");
-
+const {time} = require('../controllers/blog.js')
 const router = express.Router();
 
-router.get('/' , (req, res )=>{
-    res.json({
-        time : Date().toString()
-    })
-})
+router.get('/' , time) ;
 
-module.exports = router 
+module.exports = router ;
